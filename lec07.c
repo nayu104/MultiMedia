@@ -7,15 +7,14 @@
 unsigned char red[MAXS][MAXS], green[MAXS][MAXS], blue[MAXS][MAXS];
 unsigned char outR[MAXS][MAXS], outG[MAXS][MAXS], outB[MAXS][MAXS];
 
-// 入力画像読み込み
 void ReadImage(char *Filename, unsigned char r[MAXS][MAXS], unsigned char g[MAXS][MAXS], unsigned char b[MAXS][MAXS], long *w, long *h) {
     FILE *fp = fopen(Filename, "r");
     char buf[100];
     long width, height, maxval;
 
-    fgets(buf, 100, fp); // P3
+    fgets(buf, 100, fp); 
     do {
-        fgets(buf, 100, fp); // skip comment
+        fgets(buf, 100, fp); 
     } while (buf[0] == '#');
     sscanf(buf, "%ld %ld", &width, &height);
     fscanf(fp, "%ld", &maxval);
